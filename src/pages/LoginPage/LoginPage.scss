@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid var(--grey-light);
+  box-shadow: var(--shadow-header-form);
   max-width: 375px;
   width: 96%;
 }
@@ -12,7 +12,11 @@
 .login-form__header {
   width: 100%;
   text-align: center;
-  background-color: yellow;
+  background-image: var(--images-dogge-background);
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+  background-repeat: no-repeat;
+  color: var(--color-white);
 }
 
 .login-form {
@@ -28,7 +32,7 @@
 .login-form__input {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .login-form__input-device {
@@ -36,6 +40,19 @@
   flex-direction: row;
   flex-flow: row-reverse;
   justify-content: flex-end;
+
+  & > input {
+    accent-color: var(--color-accent);
+  }
+}
+
+.login-form__sign-in-button {
+  margin-top: 10px;
+  color: var(--color-white);
+  border-radius: 10px;
+  border: 0;
+  padding: 0.5em;
+  background-color: var(--color-accent);
 }
 
 .login-form__new-account {

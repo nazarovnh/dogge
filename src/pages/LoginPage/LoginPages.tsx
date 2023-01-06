@@ -1,3 +1,4 @@
+import Button from '../../features/Button/Button';
 import Input from '../../features/input/Input';
 
 import './LoginPage.scss';
@@ -34,8 +35,12 @@ const LoginPages = () => {
             type={'checkbox'}
           ></Input>
 
-          <button>Sign in</button>
-          <a className={'login-form__new-account'} href='https://aboba.html'>Link</a>
+          <Button className='login-form__sign-in-button' onClick={() => console.log('Check')}>
+            Sign in
+          </Button>
+          <a className={'login-form__new-account'} href='https://aboba.html'>
+            Link
+          </a>
         </div>
       </div>
     </form>

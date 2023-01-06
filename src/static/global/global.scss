@@ -1,0 +1,11 @@
+@use '../theme/light/light_global.scss';
+
+:root {
+  /* colors */
+  --color-white: #fff;
+  --grey-light: #c8cbd1;
+  --color-accent: #f5c678;
+
+  /* images */
+  --images-dogge-background: url('../theme/light/dogge_background.svg')
+}
