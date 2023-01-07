@@ -11,7 +11,7 @@ interface InputProps {
   inputText?: string;
   placeholder?: string;
   isRenderError?: boolean;
-  validationFunc?: (value: string) => void;
+  validationFunc?: (value: string) => boolean;
 }
 
 const Input = ({
@@ -21,7 +21,8 @@ const Input = ({
   className,
   labelText,
   placeholder = '',
-  isRenderError = false
+  isRenderError = false,
+  validationFunc
 }: InputProps) => {
   const [value, setValue] = useState(placeholder);
   const [erorrVisible, setErrorVisible] = useState(false);
@@ -32,16 +33,28 @@ const Input = ({
         {labelText}
       </label>
       <input
-        className={`form-group__input`}
+        className={`form-group__input form-group__input${
+          erorrVisible ? '-error' : ''
+        }`}
         type={type}
         id={id}
         name={name}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => {
+          setValue(e.target.value);
+          if (isRenderError && validationFunc)
+            validationFunc(e.target.value) ? setErrorVisible(true) : setErrorVisible(false);
+        }}
       />
-      {isRenderError ? (
-        <p className={`login-form__input-password_error${erorrVisible ? '-visible' : ''}`}></p>
+      {isRenderError && erorrVisible ? (
+        <p
+          className={`form-group__error-message  form-group__error-message${
+            erorrVisible ? '-visible' : '-hidden'
+          }`}
+        >
+          ERROR
+        </p>
       ) : null}
     </div>
   );

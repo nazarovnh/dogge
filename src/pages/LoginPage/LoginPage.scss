@@ -32,7 +32,12 @@
 .login-form__input {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  margin: 10px 0 0;
+
+  & > input {
+    border-radius: 5px;
+    border: 1px solid var(--grey-light);
+  }
 }
 
 .login-form__input-device {

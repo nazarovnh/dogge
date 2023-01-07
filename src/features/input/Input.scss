@@ -1,8 +1,21 @@
-.login-form__input-password_error {
+.form-group__error-message {
   margin: 0;
   padding: 0;
   width: 0;
   height: 0;
+
+  &-visible {
+    margin: 0.25em 0 0;
+    color: var(--color-error);
+    width: unset;
+    height: unset;
+  }
+}
+
+.form-group__input {
+  &-error {
+    background-color: var(--color-error);
+  }
 }
 
 .form-group {

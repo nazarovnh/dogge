@@ -4,6 +4,11 @@ import Input from '../../features/input/Input';
 import './LoginPage.scss';
 
 const LoginPages = () => {
+
+  const validateLogin = (value: string) : boolean => {
+    return value === 'login';
+  }
+
   return (
     <form className='login-form'>
       <div className='login-form__container'>
@@ -18,6 +23,7 @@ const LoginPages = () => {
             labelText={'Login'}
             placeholder={'login'}
             isRenderError
+            validationFunc={validateLogin}
           />
           <Input
             id={'user_password'}
