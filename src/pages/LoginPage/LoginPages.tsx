@@ -1,27 +1,32 @@
 import Button from '../../features/Button/Button';
-import Input from '../../features/input/Input';
+import Input from '../../features/Input/Input';
 
+// import MyLink from '../../features/Link/Link';
 import './LoginPage.scss';
 
 const LoginPages = () => {
+  const validRegex = /^\S+@\S+\.\S+$/;
 
-  const validateLogin = (value: string) : boolean => {
-    return value === 'login';
-  }
+  const validateLogin = (login: string): boolean => {
+    return !login.match(validRegex) || login === 'login';
+  };
+
+  const validatePassword = (password: string): boolean => {
+    return password.length < 8 || password === 'password';
+  };
 
   return (
     <form className='login-form'>
       <div className='login-form__container'>
         <div className='login-form__header'>
-          <h1>DOGGE</h1>
+          <h1 className='login-form__header-title'>DOGGEE</h1>
         </div>
         <div className='login-form__body'>
           <Input
             id={'user_login'}
             name={'user[login]'}
             className='login-form__input login-form__input-login'
-            labelText={'Login'}
-            placeholder={'login'}
+            placeholder={'Username'}
             isRenderError
             validationFunc={validateLogin}
           />
@@ -29,9 +34,10 @@ const LoginPages = () => {
             id={'user_password'}
             name={'user[password]'}
             className='login-form__input login-form__input-password'
-            labelText={'Password'}
-            placeholder={'password'}
+            placeholder={'Password'}
             isRenderError
+            type='password'
+            validationFunc={validatePassword}
           ></Input>
           <Input
             id={'checkbox_device'}
@@ -44,9 +50,7 @@ const LoginPages = () => {
           <Button className='login-form__sign-in-button' onClick={() => console.log('Check')}>
             Sign in
           </Button>
-          <a className={'login-form__new-account'} href='https://aboba.html'>
-            Link
-          </a>
+          <a className='login-form__create-new-accout'  href='aboba'>Create new accout</a>
         </div>
       </div>
     </form>

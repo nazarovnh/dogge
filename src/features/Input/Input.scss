@@ -1,14 +1,16 @@
 .form-group__error-message {
+  display: inline-block;
   margin: 0;
   padding: 0;
-  width: 0;
   height: 0;
+  width: 0;
+  transition: all 1s ease-out;
 
   &-visible {
     margin: 0.25em 0 0;
     color: var(--color-error);
-    width: unset;
-    height: unset;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -16,8 +18,11 @@
   &-error {
     background-color: var(--color-error);
   }
-}
 
+  &:focus {
+    outline: 0;
+  }
+}
 .form-group {
   &:last-child {
     margin: 10px;

@@ -2,19 +2,15 @@ import { useState } from 'react';
 
 import './Input.scss';
 
-interface InputProps {
-  id: string;
-  name: string;
-  type?: string;
-  className: string;
-  labelText: string;
+export interface InputProps extends React.HTMLProps<HTMLInputElement> {
+  labelText?: string;
   inputText?: string;
   placeholder?: string;
   isRenderError?: boolean;
   validationFunc?: (value: string) => boolean;
 }
 
-const Input = ({
+const Input: React.FC<InputProps> = ({
   id,
   name,
   type = 'text',
@@ -29,20 +25,23 @@ const Input = ({
 
   return (
     <div className={`form-group ${className}`}>
-      <label className={`form-group__label`} htmlFor={id}>
-        {labelText}
-      </label>
+      {labelText ? (
+        <label className={`form-group__label`} htmlFor={id}>
+          {labelText}
+        </label>
+      ) : null}
       <input
-        className={`form-group__input form-group__input${
-          erorrVisible ? '-error' : ''
-        }`}
+        className={`form-group__input form-group__input${erorrVisible ? '-error' : ''}`}
         type={type}
         id={id}
         name={name}
         placeholder={placeholder}
         value={value}
         onChange={(e) => {
+          setErrorVisible(false);
           setValue(e.target.value);
+        }}
+        onBlur={(e) => {
           if (isRenderError && validationFunc)
             validationFunc(e.target.value) ? setErrorVisible(true) : setErrorVisible(false);
         }}
