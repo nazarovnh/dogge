@@ -1,16 +1,16 @@
 .form-group__error-message {
   display: inline-block;
-  margin: 0;
-  padding: 0;
-  height: 0;
-  width: 0;
-  transition: all 1s ease-out;
+  opacity: 0;
+
+  & :hover {
+    opacity: 1;
+  }
 
   &-visible {
     margin: 0.25em 0 0;
     color: var(--color-error);
-    height: 100%;
-    width: 100%;
+    transition: 0.5s;
+    opacity: 1;
   }
 }
 

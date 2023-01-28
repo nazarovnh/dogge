@@ -46,7 +46,7 @@ const Input: React.FC<InputProps> = ({
             validationFunc(e.target.value) ? setErrorVisible(true) : setErrorVisible(false);
         }}
       />
-      {isRenderError && erorrVisible ? (
+      {isRenderError ? (
         <p
           className={`form-group__error-message  form-group__error-message${
             erorrVisible ? '-visible' : '-hidden'
