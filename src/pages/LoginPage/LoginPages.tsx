@@ -1,5 +1,6 @@
 import Button from '../../features/Button/Button';
 import Input from '../../features/Input/Input';
+import PasswordInput from '../../features/Input/PasswordInput/PasswordInput';
 
 // import MyLink from '../../features/Link/Link';
 import './LoginPage.scss';
@@ -30,15 +31,13 @@ const LoginPages = () => {
             isRenderError
             validationFunc={validateLogin}
           />
-          <Input
+          <PasswordInput
             id={'user_password'}
             name={'user[password]'}
             className='login-form__input login-form__input-password'
             placeholder={'Password'}
-            isRenderError
-            type='password'
             validationFunc={validatePassword}
-          ></Input>
+          ></PasswordInput>
           <Input
             id={'checkbox_device'}
             name={'user[checkbox_device]'}
@@ -46,11 +45,12 @@ const LoginPages = () => {
             labelText={'This is my root device'}
             type={'checkbox'}
           ></Input>
-
           <Button className='login-form__sign-in-button' onClick={() => console.log('Check')}>
             Sign in
           </Button>
-          <a className='login-form__create-new-accout'  href='aboba'>Create new accout</a>
+          <a className='login-form__create-new-accout' href='aboba'>
+            Create new accout
+          </a>
         </div>
       </div>
     </form>

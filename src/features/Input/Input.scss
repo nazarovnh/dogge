@@ -14,10 +14,7 @@
   }
 }
 
-.form-group__input {
-  &-error {
-    background-color: var(--color-error);
-  }
+.form-group__input {    
 
   &:focus {
     outline: 0;

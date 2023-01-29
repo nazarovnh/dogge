@@ -45,7 +45,8 @@ const Input: React.FC<InputProps> = ({
           if (isRenderError && validationFunc)
             validationFunc(e.target.value) ? setErrorVisible(true) : setErrorVisible(false);
         }}
-      />
+      >
+      </input>
       {isRenderError ? (
         <p
           className={`form-group__error-message  form-group__error-message${
